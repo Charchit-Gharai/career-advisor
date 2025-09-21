@@ -1,0 +1,372 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary-color: #6a1b9a; /* Deep purple */
+    --secondary-color: #f3e5f5; /* Light purple */
+    --accent-color: #ff9800; /* Orange for highlights */
+    --text-color: #4a4a4a;
+    --background-color: #f7f9fc; /* Light grey background */
+    --card-background: #ffffff; /* White for explicit cards where needed */
+    --border-radius: 12px;
+}
+
+/* Base styles for the entire page */
+html, body, .stApp {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+/* Main Streamlit container to fit content */
+.main .block-container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    max-width: 1200px;
+}
+
+/* --- GLOBAL STREAMLIT OVERRIDES TO REMOVE WHITE BOXES --- */
+/* Target common Streamlit blocks and make them transparent */
+div[data-testid*="stVerticalBlock"],
+div[data-testid*="stHorizontalBlock"],
+div[data-testid*="stBlock"],
+div[data-testid*="stExpander"],
+section[data-testid*="stSidebar"],
+div[data-testid*="stTabs"],
+div[data-testid*="stColumn"] {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Specific overrides for containers that might still show backgrounds */
+.st-emotion-cache-16txte0,
+.st-emotion-cache-z5qlji,
+.st-emotion-cache-1gcsf18,
+.st-emotion-cache-1pxmz72,
+.st-emotion-cache-1oe5f0g {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Remove default padding from the main content area if needed */
+.main > div {
+    padding: 0 !important;
+}
+
+/* Adjust padding for the fixed header */
+.fixed-header {
+    position: sticky;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 1rem 2rem;
+    text-align: right;
+    background-color: transparent;
+}
+
+/* Profile icon container (keep this as a distinct card) */
+.profile-icon-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--card-background);
+    padding: 8px 15px;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.profile-name {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.profile-icon {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--accent-color);
+}
+
+/* --- Login Page specific styling --- */
+.login-container {
+    padding: 3rem 2rem;
+    max-width: 450px;
+    margin: auto;
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.login-title {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.login-subtitle {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* Social login icons styling */
+.social-login-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 2rem;
+}
+
+.social-login-buttons p {
+    margin-bottom: 0;
+    color: #888;
+}
+
+.social-login-buttons img {
+    width: 35px;
+    height: 35px;
+    transition: transform 0.2s;
+}
+
+.social-login-buttons img:hover {
+    transform: scale(1.1);
+}
+
+/* --- Main App UI --- */
+
+/* New class for top-left logo and title layout */
+.top-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+.top-header h1 {
+    margin: 0;
+    line-height: 1;
+}
+
+.top-header p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.app-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.app-subtitle {
+    text-align: center;
+    color: #888;
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+.section-title {
+    font-size: 2rem;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 5px;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Forms (specifically the form itself) */
+div[data-testid="stForm"] {
+    background-color: var(--card-background);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+div[data-testid="stForm"]:hover {
+    transform: translateY(-5px);
+}
+
+label {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+/* Buttons */
+button {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 50px !important;
+    font-weight: 600 !important;
+    padding: 12px 25px !important;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: var(--accent-color) !important;
+    transform: scale(1.05);
+}
+
+/* Cards for Recommendations */
+.career-card {
+    background-color: var(--card-background);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.career-card:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+
+.career-card h3 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 5px;
+    margin-top: 0;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.skill-tag {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.missing-skill {
+    background-color: #ffe0b2;
+    color: var(--accent-color);
+}
+
+.resource-link {
+    color: var(--primary-color) !important;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.resource-link:hover {
+    text-decoration: underline;
+}
+
+/* Progress Bar & Checkboxes */
+.stProgress > div > div > div > div {
+    background-color: var(--primary-color);
+}
+
+.stProgress > div > div > div {
+    background-color: var(--secondary-color);
+}
+
+/* Ensure individual checkboxes don't have containers */
+div[data-testid="stCheckbox"] {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0;
+    margin: 0;
+}
+
+/* Target the wrapper around individual checkboxes when they are in a vertical block */
+div[data-testid="stVerticalBlock"] div.st-emotion-cache-1oe5f0g {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0;
+    margin: 0;
+}
+
+/* --- Sidebar styling --- */
+.css-1d391kg {
+    background-color: #fafafa !important;
+    border-right: 1px solid #e0e0e0 !important;
+    box-shadow: none !important;
+}
+
+.sidebar-info-card {
+    background-color: var(--card-background);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar-info-card h4 {
+    font-size: 1rem;
+    color: var(--primary-color);
+}
+
+.sidebar-info-card p {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.sidebar-footer {
+    font-size: 0.75rem;
+    color: #aaa;
+    text-align: center;
+}
+
+/* Style the sidebar navigation buttons */
+.sidebar .stButton > button {
+    background-color: transparent !important;
+    color: var(--primary-color) !important;
+    border: 1px solid var(--primary-color) !important;
+    padding: 10px 15px !important;
+    margin-bottom: 10px;
+}
+
+.sidebar .stButton > button:hover {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+/* Specific styling for plotly graph containers to remove background */
+div.st-emotion-cache-f1g6xv,
+div.st-emotion-cache-1ftrzg0 {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* If there are any st.markdown elements that somehow get wrapped in a white box */
+div[data-testid="stMarkdownContainer"] {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+/* New custom class for the rounded logo */
+.rounded-logo {
+    border-radius: 50%;
+    width: 80px; /* Adjust the size as needed */
+    height: 80px; /* Adjust the size as needed */
+}
